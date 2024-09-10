@@ -36,19 +36,19 @@ function checkGuess(Guess, randmNumber) {
 
 function validateGuess(Guess, randmNumber) {
     if (Guess == randmNumber) {
-        displayMessage('You win😎');
+        displayMessage('You win😎', Guess);
     } else {
         if (Guess > randmNumber) {
-            displayMessage('Your Number is TOO High');
+            displayMessage('Your Number is TOO High', Guess);
         } else {
-            displayMessage('Your Number is TOO Small');
+            displayMessage('Your Number is TOO Small', Guess);
         }
     }
 }
 
-function displayMessage(msg) {
+function displayMessage(msg, Guess) {
     message.innerHTML = `<h2>${msg}</h2>`
-    previousValue.innerHTML = + `${preVal}  `
+    previousValue.innerHTML = + `${Guess}  `;
 
 
 }

@@ -4,7 +4,6 @@
 // console.log(`random number: ${randmNumber}`);
 const input = document.querySelector("#guessField");
 const previousValue = document.querySelector('.guesses');
-
 const submit = document.getElementById('subt');
 const message = document.querySelector('.lowOrHi');
 
@@ -48,7 +47,5 @@ function validateGuess(Guess, randmNumber) {
 
 function displayMessage(msg, Guess) {
     message.innerHTML = `<h2>${msg}</h2>`
-    previousValue.innerHTML = + `${Guess}  `;
-
-
+    previousValue.innerHTML += `${Guess}  `;
 }

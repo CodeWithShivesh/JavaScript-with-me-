@@ -11,12 +11,14 @@ const result = document.querySelector('.resultParas')
 const form = document.querySelector('.form')
 
 let game = true;
+let win = false;
 const msg = document.createElement('h2');
 let preVal = [];
 let num = 10;
 const button = document.createElement('button');
 button.innerHTML = 'Start Again ✊';
-button.style.marginTop = '5px'
+button.style.marginTop = '5px';
+button.style.backgroundColor = 'Green'
 
 
 
@@ -26,7 +28,7 @@ if (game) {
         const guess = parseInt(input.value)
         preVal.push(guess)
         input.value = '';
-        const randmNumber = parseInt((Math.random() * 100) + 1);
+        const randmNumber = 50//parseInt((Math.random() * 100) + 1);
         checkGuess(guess, randmNumber)
     })
 }
@@ -45,17 +47,20 @@ function checkGuess(Guess, randmNumber) {
 
 function validateGuess(Guess, randmNumber) {
     if (Guess == randmNumber) {
-        displayMessage('You win😎', Guess);
+        win = true;
+        displayMessage('Hooray!! You Won 🎉🎉', Guess, win);
+        endGame(win);
     } else {
         if (Guess > randmNumber) {
-            displayMessage('Your Number is TOO High', Guess);
+            displayMessage('Your Number is TOO High', Guess, win);
         } else {
-            displayMessage('Your Number is TOO Small', Guess);
+            displayMessage('Your Number is TOO Small', Guess, win);
         }
     }
 }
 
-function displayMessage(msg, Guess) {
+function displayMessage(msg, Guess, win) {
+    if (win) message.style.color = 'green';
     message.innerHTML = `<h2>${msg}</h2>`
     previousValue.innerHTML += `${Guess}  `;
     num -= 1;
@@ -63,16 +68,23 @@ function displayMessage(msg, Guess) {
     if (num < 1) endGame();
 }
 
-function endGame() {
-    if (num < 1) {
+function endGame(win = false) {
+    if (win) {
         game = false;
         input.setAttribute('disabled', '');
-        submit.style.visibility = 'hidden'
-        form.appendChild(button)
+        submit.remove();
+        form.appendChild(button);
+    }
+    else {
+        game = false;
+        input.setAttribute('disabled', '');
+        submit.remove();
+        form.appendChild(button);
         message.innerHTML = `<h2>You Lost!!</h2>`
         warning.style.color = 'red';
         count.style.color = 'red';
-        message.style.margin = '5px';
-        // result.appendChild(button);
     }
+    message.style.margin = '5px';
+    // result.appendChild(button);
+    // }
 }

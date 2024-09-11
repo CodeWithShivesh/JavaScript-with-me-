@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Styling change</title>
+</head>
+
+<body class="body">
+    <p id="para1">Lorem ipsum dolor sit amet.</p>
+    <h1 id="webdeveloper">I'm a web Developer</h1>
+    <h5 id="hosting">I'm hosting this site</h5>
+    <button id="button">Click Me</button>
+</body>
+<script>
+    const para = document.querySelector('#para1')
+    const developer = document.getElementById('webdeveloper')
+    const hosting = document.querySelector('#hosting')
+    const button = document.getElementById('button')
+    const body = document.querySelector('.body')
+
+    body.style.backgroundColor = '#212121'
+    body.style.color = 'white'
+
+    button.addEventListener('click', function (e) {
+        if (developer.style.color == 'red') {
+            developer.style.color = 'white'
+        } else {
+            developer.style.color = 'red'
+        }
+    })
+
+
+
+
+</script>
+
+</html>

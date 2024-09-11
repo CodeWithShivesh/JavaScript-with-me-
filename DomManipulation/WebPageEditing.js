@@ -9,7 +9,6 @@ function AddDay(DayName) {
 
 //Edit Day
 const EditDay = (DayName) => {
-
     const day = document.querySelector("li:nth-child(1)");
     day.innerHTML = `${DayName}`;
 }

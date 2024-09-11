@@ -11,7 +11,9 @@
     <p id="para1">Lorem ipsum dolor sit amet.</p>
     <h1 id="webdeveloper">I'm a web Developer</h1>
     <h5 id="hosting">I'm hosting this site</h5>
-    <button id="button">Click Me</button>
+    <div class="buttons">
+        <button id="button">Click Me</button>
+    </div>
 </body>
 <script>
     const para = document.querySelector('#para1')
@@ -19,6 +21,22 @@
     const hosting = document.querySelector('#hosting')
     const button = document.getElementById('button')
     const body = document.querySelector('.body')
+    const div = document.querySelector('.buttons')
+
+    const button1 = document.createElement('button')
+    button1.innerHTML = 'magic'
+
+    button1.addEventListener('click', function(e){
+        setTimeout(5000)
+        body.style.backgroundColor = '#709090' // grey
+
+        // if(body.style.backgroundColor = '#212121') {
+        // body.style.backgroundColor = '#216721'
+        // } else if(body.style.backgroundColor = '#216721'){
+        //     body.style.backgroundColor = '#987321'
+        // } else {body.style.backgroundColor = '#709090'}
+        
+    })
 
     body.style.backgroundColor = '#212121'
     body.style.color = 'white'
@@ -29,9 +47,11 @@
         } else {
             developer.style.color = 'red'
         }
+        div.appendChild(button1);
     })
 
-
+// body.style.color = 'white'
+        // #987321 '#709090'
 
 
 </script>

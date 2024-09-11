@@ -12,8 +12,8 @@
 
 <body style="background-color:#212121; color:#fff;">
     <nav>
-        <!-- <a href="/" aria-current="page">Home</a>
-        <a target="_blank" href="https://www.youtube.com/@chaiaurcode">Youtube channel</a> -->
+        <a href="/" aria-current="page">Home</a>
+        <a target="_blank" href="https://www.youtube.com/@chaiaurcode">Youtube channel</a>
     </nav>
     <div id="wrapper">
         <h1>Number guessing game</h1>
@@ -23,13 +23,14 @@
         <form class="form">
             <label2 for="guessField" id="guess">Guess a number</label>
                 <input type="text" id="guessField" class="guessField">
-                <input type="submit" id="subt" value="Submit guess" class="guessSubmit">
+                <!-- <input type="submit" id="subt" value="Submit guess" class="guessSubmit"> -->
+                <button id="subt" class="guessSubmit">Submit Guess</button>
         </form>
 
         <div class="resultParas">
             <p>Previous Guesses: <span class="guesses"></span></p>
             <div id="warning">
-            <p>Guesses Remaining: <span class="lastResult">10</span></p>
+                <p>Guesses Remaining: <span class="lastResult">10</span></p>
             </div>
             <p class="lowOrHi"></p>
         </div>

@@ -6,12 +6,18 @@ const previousValue = document.querySelector('.guesses');
 const submit = document.getElementById('subt');
 const message = document.querySelector('.lowOrHi');
 const count = document.querySelector('.lastResult');
-const warning = document.querySelector('warning');
+const warning = document.querySelector('#warning');
+const result = document.querySelector('.resultParas')
+const form = document.querySelector('.form')
 
 let game = true;
 const msg = document.createElement('h2');
 let preVal = [];
 let num = 10;
+const button = document.createElement('button');
+button.innerHTML = 'Start Again ✊';
+button.style.marginTop = '5px'
+
 
 
 if (game) {
@@ -61,21 +67,12 @@ function endGame() {
     if (num < 1) {
         game = false;
         input.setAttribute('disabled', '');
-        message.innerHTML = `<h2>You lost all the chance !!</h2>`
+        submit.style.visibility = 'hidden'
+        form.appendChild(button)
+        message.innerHTML = `<h2>You Lost!!</h2>`
         warning.style.color = 'red';
-
-    }
-}
-
-function startGame() {
-    if (game) {
-        submit.addEventListener('click', function (e) {
-            e.preventDefault()
-            const guess = parseInt(input.value)
-            preVal.push(guess)
-            input.value = '';
-            const randmNumber = parseInt((Math.random() * 100) + 1);
-            checkGuess(guess, randmNumber)
-        })
+        count.style.color = 'red';
+        message.style.margin = '5px';
+        // result.appendChild(button);
     }
 }

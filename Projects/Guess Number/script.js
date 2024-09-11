@@ -1,7 +1,6 @@
 // console.log("Number Gussing Game");
 
-// let randmNumber = parseInt((Math.random() * 100) + 1);
-// console.log(`random number: ${randmNumber}`);
+
 const input = document.querySelector("#guessField");
 const previousValue = document.querySelector('.guesses');
 const submit = document.getElementById('subt');
@@ -25,7 +24,6 @@ if (game) {
         checkGuess(guess, randmNumber)
     })
 }
-
 
 function checkGuess(Guess, randmNumber) {
     if (isNaN(Guess)) {
@@ -64,7 +62,20 @@ function endGame() {
         game = false;
         input.setAttribute('disabled', '');
         message.innerHTML = `<h2>You lost all the chance !!</h2>`
-        warning.style.color = "Red";
+        warning.style.color = 'red';
 
+    }
+}
+
+function startGame() {
+    if (game) {
+        submit.addEventListener('click', function (e) {
+            e.preventDefault()
+            const guess = parseInt(input.value)
+            preVal.push(guess)
+            input.value = '';
+            const randmNumber = parseInt((Math.random() * 100) + 1);
+            checkGuess(guess, randmNumber)
+        })
     }
 }

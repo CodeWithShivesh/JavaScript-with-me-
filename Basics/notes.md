@@ -149,6 +149,8 @@ In the **Event** syntax there are 3 parameters like
  clicked on inner div
 ```
 
+ <hr>
+<br><br><br>
 
 ``` javascript 
 document.getElementById('google').addEventListener('click',function(e){

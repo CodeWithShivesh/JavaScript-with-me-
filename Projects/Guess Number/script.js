@@ -28,7 +28,7 @@ if (game) {
         const guess = parseInt(input.value)
         preVal.push(guess)
         input.value = '';
-        const randmNumber = 50//parseInt((Math.random() * 100) + 1);
+        const randmNumber = parseInt((Math.random() * 100) + 1);
         checkGuess(guess, randmNumber)
     })
 }

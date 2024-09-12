@@ -50,3 +50,110 @@ In the **Event** syntax there are 3 parameters like
 <br>
 - **clicked on inner div**
       will print respectively
+
+<br><hr><br><hr>
+
+>***Example:*** Event propagation value = false which is refering to Event Bubbling. (`small to big` or `inside to outside`)  
+
+``` javascript
+<body>
+<div id="outer">
+    <h1> Outer Box </h1>
+    <div id="inner">
+        <h1> Inner Box </h1>
+    </div>
+</div>
+</body>
+<script>
+    document.getElementById('outer').addEventListener('click', function(e){
+        console.log("clicked on outer div");
+    }, false)
+
+    document.getElementById('inner').addEventListener('click', function(e){
+        console.log("clicked on inner div");
+    }, false)
+</script>
+```
+### Clicked on Outer div: `Output`
+``` console
+ clicked on outer div
+```
+### Clicked on Inner div: `Output`
+``` console
+ clicked on inner div
+ clicked on outer div
+```
+<hr>
+
+>***Example:*** Event propagation value = true which is refering to Event Capturing. (`big to small` or `outside to inside`)  
+
+``` javascript
+<body>
+<div id="outer">
+    <h1> Outer Box </h1>
+    <div id="inner">
+        <h1> Inner Box </h1>
+    </div>
+</div>
+</body>
+<script>
+    document.getElementById('outer').addEventListener('click', function(e){
+        console.log("clicked on outer div");
+    }, true)
+
+    document.getElementById('inner').addEventListener('click', function(e){
+        console.log("clicked on inner div");
+    }, true)
+</script>
+```
+### Clicked on Outer div: `Output`
+``` console
+ clicked on outer div
+```
+### Clicked on Inner div: `Output`
+``` console
+ clicked on outer div
+ clicked on inner div
+```
+<hr>
+
+>***Example:*** Event propagation default which is refering to Event Bubling but you want to stop the Event propagation ( `Everything is seprated` ) using  `stopPropagation()` method 
+
+``` javascript
+<body>
+<div id="outer">
+    <h1> Outer Box </h1>
+    <div id="inner">
+        <h1> Inner Box </h1>
+    </div>
+</div>
+</body>
+<script>
+    document.getElementById('outer').addEventListener('click', function(e){
+        console.log("clicked on outer div");
+    }, true)
+
+    document.getElementById('inner').addEventListener('click', function(e){
+        console.log("clicked on inner div");
+        e.stopPropagation()
+    }, true)
+</script>
+```
+### Clicked on Outer div: `Output`
+``` console
+ clicked on outer div
+```
+### Clicked on Inner div: `Output`
+``` console
+ clicked on outer div
+ clicked on inner div
+```
+
+
+``` javascript 
+document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();
+        e.stopPropagation()
+        console.log("google clicked");
+    }, false)
+```

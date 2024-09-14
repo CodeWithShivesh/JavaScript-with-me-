@@ -29,7 +29,7 @@
     height: 18vmin;
     width: 18vmin;
     border: none;
-    border-radius: 1rem;
+    border-radius: 0.4rem;
     color: #5D737E;
     font-size: 8vmin;
     background-color: #ECE4B7;
@@ -40,7 +40,8 @@
     height: 8vmin;
     width: 18vmin;
     border: none;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
     color: #5D737E;
-    background-color: #ECE4B7;
+    background-color: #FC9F5B;
 }
